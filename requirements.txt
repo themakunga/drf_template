@@ -1,1 +1,7 @@
+django
+django-cors-headers
+djangorestframework
+djangorestframework_simplejwt
+drf-yasg
+drf-yasg[validation]
 pre-commit
