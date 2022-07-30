@@ -42,6 +42,11 @@ repos:
           - LICENSE       # defaults to: LICENSE.txt
           - --comment-style
           - //
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v1.4.0
+    hooks:
+      - id: conventional-pre-commit
+        stages: [commit-msg]
   - repo: local
     hooks:
       - id: run-unit-test
