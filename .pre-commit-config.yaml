@@ -36,7 +36,7 @@ repos:
       - id: forbid-tabs
       - id: remove-tabs
       - id: insert-license
-        files: \.groovy$
+        files: \.py$
         args:
           - --license-filepath
           - LICENSE       # defaults to: LICENSE.txt
@@ -55,4 +55,6 @@ repos:
         language: system
         types: [python]
         pass_filenames: false
-        always_run: true              # defaults to:  #
+        always_run: true
+        stages:
+          - push
