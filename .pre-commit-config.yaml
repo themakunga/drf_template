@@ -24,10 +24,16 @@ repos:
     hooks:
     -   id: markdown-toc
         # optional custom config:
-        args: [--indent, "  ", -i]
+        args:
+          - --indent
+          - "  "
+          - -i
     -   id: dockerfile_lint
         # optional custom config:
-        args: [--json, --verbose, --dockerfile]
+        args:
+        - --json
+        - --verbose
+        - --dockerfile
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     rev: v1.3.0
     hooks:
@@ -41,20 +47,31 @@ repos:
           - --license-filepath
           - LICENSE       # defaults to: LICENSE.txt
           - --comment-style
-          - //
+          - "#"
   - repo: https://github.com/compilerla/conventional-pre-commit
     rev: v1.4.0
     hooks:
       - id: conventional-pre-commit
-        stages: [commit-msg]
+        stages:
+          - commit-msg
   - repo: local
     hooks:
       - id: run-unit-test
         name: run unit test DRF
-        entry: ./manage.py test
+        entry: ./manage.py test -v 2
         language: system
-        types: [python]
+        types:
+          - python
         pass_filenames: false
         always_run: true
+        stages:
+          - push
+      - id: run-coverage
+        name: run coverage
+        entry: coverage run ./manage.py test -v 2
+        language: system
+        types:
+          - python
+        pass_filename: false
         stages:
           - push
