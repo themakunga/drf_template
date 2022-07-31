@@ -68,7 +68,7 @@ repos:
           - push
       - id: run-coverage
         name: run coverage
-        entry: coverage run ./manage.py test -v 2
+        entry: coverage run ./manage.py test && coverage html && coverage report
         language: system
         types:
           - python
