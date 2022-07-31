@@ -48,7 +48,7 @@ class UsersTestCase(TestCase):
         logger.debug('Adding a new person into database')
 
         response = client.post(
-            '/user/', {
+            '/user', {
                 'email': 'newtest@test.ts',
                 'password': 'acab12345555',
                 'password_confirmation': 'acab12345555',
