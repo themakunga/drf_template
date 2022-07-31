@@ -38,7 +38,7 @@ class UserModelSerializer(serializers.ModelSerializer):
             'username',
             'email',
             'created_at',
-            'updated_at'
+            'updated_at',
         )
 
 class UserLoginSerializer(serializers.Serializer):
