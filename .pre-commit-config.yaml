@@ -68,10 +68,28 @@ repos:
           - push
       - id: run-coverage
         name: run coverage
-        entry: coverage run ./manage.py test && coverage html && coverage report
+        entry: coverage run ./manage.py test
         language: system
         types:
           - python
         pass_filenames: false
         stages:
           - push
+      - id: coverage-report-html
+        name: create coverage report in html
+        entry: coverage html
+        language:  system
+        types:
+          - python
+        pass_filenames: false
+        stages:
+          - push
+      - id: coverage-print-report
+        name: print coverage simple report
+        entry: coverage report
+        language: system
+        types:
+          - python
+        stages:
+          - push
+        pass_filenames: false
